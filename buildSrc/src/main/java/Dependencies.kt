@@ -30,6 +30,8 @@ object Versions {
     const val jUnit = "4.12"
     const val espresso = "3.3.0"
     const val androidxJunit = "1.1.2"
+    const val navCompose = "2.7.5"
+    const val hiltNavCompose = "1.0.0"
 }
 
 object AppMetaData {
@@ -57,9 +59,14 @@ object Deps {
     const val navigationUi = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 
+    //
+    const val navigation = "androidx.navigation:navigation-compose:${Versions.navCompose}"
+    const val hilNavigation = "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavCompose}"
+
     //Hilt
     const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val hiltKapt = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+
 
     //Networking
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"

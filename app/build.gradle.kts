@@ -59,6 +59,8 @@ dependencies {
     implementation(Deps.appCompat)
     implementation(Deps.material)
     implementation(Deps.hilt)
+    implementation(Deps.navigation)
+    implementation(Deps.hilNavigation)
     kapt(Deps.hiltKapt)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
