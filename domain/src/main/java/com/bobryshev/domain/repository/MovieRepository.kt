@@ -8,5 +8,5 @@ interface MovieRepository {
 
     suspend fun getMovieOffers(): NetworkResult<List<MovieOffer>>
 
-    suspend fun getMoviesData(): List<MovieData>
+    suspend fun getMoviesData(): NetworkResult<List<MovieData>>
 }

@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlin.coroutines.EmptyCoroutineContext
@@ -12,7 +13,7 @@ import kotlin.coroutines.EmptyCoroutineContext
 abstract class BaseViewModel<State: UIState>: ViewModel() {
 
     private var _uiState = MutableStateFlow<State?>(null)
-    val uiState = _uiState.asStateFlow()
+    val uiState: StateFlow<State?> = _uiState.asStateFlow()
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
         updateErrorState(throwable)

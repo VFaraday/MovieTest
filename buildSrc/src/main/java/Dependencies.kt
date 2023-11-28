@@ -8,7 +8,10 @@ object Versions {
     const val androidx_core = "1.3.2"
     const val retrofitCoroutines = "0.9.2"
     const val multidex = "2.0.1"
-    const val hilt = "2.44"
+    const val hilt = "2.48.1"
+    const val navCompose = "2.7.5"
+    const val hiltNavCompose = "1.0.0"
+    const val coilCompose = "2.5.0"
 
     //Remote
     const val retrofit = "2.9.0"
@@ -30,8 +33,7 @@ object Versions {
     const val jUnit = "4.12"
     const val espresso = "3.3.0"
     const val androidxJunit = "1.1.2"
-    const val navCompose = "2.7.5"
-    const val hiltNavCompose = "1.0.0"
+
 }
 
 object AppMetaData {
@@ -58,6 +60,7 @@ object Deps {
         "android.arch.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUi = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val coil = "io.coil-kt:coil-compose:${Versions.coilCompose}"
 
     //
     const val navigation = "androidx.navigation:navigation-compose:${Versions.navCompose}"

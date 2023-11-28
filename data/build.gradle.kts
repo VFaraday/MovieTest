@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
@@ -10,9 +10,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.bobryshev.data"
         minSdk = 24
-        targetSdk = 34
     }
 
     buildTypes {

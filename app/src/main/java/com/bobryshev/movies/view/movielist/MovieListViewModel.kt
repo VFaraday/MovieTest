@@ -10,8 +10,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieListViewModel @Inject constructor(
-    private val movieOfferUseCase: MovieOffersUseCase
+    private val movieOfferUseCase: MovieOffersUseCase,
 ): BaseViewModel<MovieListUiState>() {
+
+    init {
+        updateState { state ->
+            state.value = MovieListUiState()
+        }
+        loadData()
+    }
 
     private fun loadData() {
         launch {

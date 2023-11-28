@@ -15,7 +15,7 @@ class MovieRepositoryImpl @Inject constructor(
         return moviesDataSource.getMovieOffers()
     }
 
-    override suspend fun getMoviesData(): List<MovieData> {
+    override suspend fun getMoviesData(): NetworkResult<List<MovieData>>{
         return moviesDataSource.getMovieData()
     }
 

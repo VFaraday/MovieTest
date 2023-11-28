@@ -1,6 +1,6 @@
 package com.bobryshev.domain
 
-sealed interface NetworkResult<T : Any>
+sealed interface NetworkResult<T : Any?>
 class Success<T: Any>(val data: T) : NetworkResult<T>
 class Error<T: Any>(val code: Int, val message: String?) : NetworkResult<T>
 class Exception<T: Any>(val e: Throwable) : NetworkResult<T>
@@ -26,5 +26,22 @@ suspend fun <T : Any> NetworkResult<T>.onException(
 ): NetworkResult<T> = apply {
     if (this is Exception<T>) {
         executable(e)
+    }
+}
+ fun <T: Any, R: Any> NetworkResult<T>.map(
+    block: T.() -> R
+): NetworkResult<R> = run {
+    when(this) {
+        is Success -> {
+            Success(
+                data.block()
+            )
+        }
+        is Error -> {
+            Error(this.code, this.message)
+        }
+        is Exception -> {
+            Exception(e)
+        }
     }
 }

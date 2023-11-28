@@ -15,12 +15,12 @@ import java.util.concurrent.TimeUnit
 object NetworkModule {
 
     @Provides
-    private fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor()
     }
 
     @Provides
-    private fun provideOkhttp(loggingInterceptor: HttpLoggingInterceptor,): OkHttpClient {
+    fun provideOkhttp(loggingInterceptor: HttpLoggingInterceptor,): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .callTimeout(20, TimeUnit.SECONDS)
@@ -28,7 +28,7 @@ object NetworkModule {
     }
 
     @Provides
-    private fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://movies-assessment.firebaseapp.com/")
             .addConverterFactory(GsonConverterFactory.create())

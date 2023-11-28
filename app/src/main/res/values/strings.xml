@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Movies</string>
+    <string name="movie_offers">Movie offers</string>
+    <string name="movie_details">Movie details</string>
+    <string name="is_available">Available: %s</string>
+    <string name="price">Price: \$$s</string>
 </resources>

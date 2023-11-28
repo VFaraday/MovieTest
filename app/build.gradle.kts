@@ -39,11 +39,15 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.2"
+    }
 }
 
 dependencies {
 
     implementation(project(":domain"))
+    implementation(project(":data"))
 
     val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
     implementation(composeBom)
@@ -61,6 +65,7 @@ dependencies {
     implementation(Deps.hilt)
     implementation(Deps.navigation)
     implementation(Deps.hilNavigation)
+    implementation(Deps.coil)
     kapt(Deps.hiltKapt)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

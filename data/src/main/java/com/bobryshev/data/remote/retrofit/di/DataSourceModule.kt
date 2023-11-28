@@ -5,10 +5,10 @@ import com.bobryshev.data.remote.retrofit.impl.MoviesDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.ViewModelComponent
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(ViewModelComponent::class)
 abstract class DataSourceModule {
 
     @Binds

@@ -23,9 +23,12 @@ class MoviesDataSourceImpl @Inject constructor(
         )
     }
 
-    override suspend fun getMovieData(): List<MovieData> {
-        return movieApi.getMovieData().movies.map {
-            it.toDomain()
-        }
+    override suspend fun getMovieData(): NetworkResult<List<MovieData>> {
+        return handleApi(
+            execute = { movieApi.getMovieData() },
+            mapper = { response ->
+                response.movies.map { it.toDomain() }
+            }
+        )
     }
 }

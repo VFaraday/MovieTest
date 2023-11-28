@@ -11,5 +11,5 @@ interface MovieApi {
     suspend fun getMovieOffers(): Response<MovieOffers>
 
     @GET("movie_data.json")
-    suspend fun getMovieData(): MovieDataResponse
+    suspend fun getMovieData(): Response<MovieDataResponse>
 }
