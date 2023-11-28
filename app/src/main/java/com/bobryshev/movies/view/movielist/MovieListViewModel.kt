@@ -21,19 +21,24 @@ class MovieListViewModel @Inject constructor(
     }
 
     private fun loadData() {
+        updateState { state ->
+            state.value = state.value?.copy(
+                isLoading = true
+            )
+        }
         launch {
             movieOfferUseCase.invoke()
                 .onSuccess { list ->
                     updateState { state ->
                         state.value?.let {
-                            state.value = it.copy(list = list)
+                            state.value = it.copy(list = list, isLoading = false)
                         }
                     }
                 }
                 .onError { _, _ ->
                     updateState { state ->
                         state.value?.let {
-                            state.value = it.copy(list = emptyList())
+                            state.value = it.copy(list = emptyList(), isLoading = false)
                         }
                     }
                 }

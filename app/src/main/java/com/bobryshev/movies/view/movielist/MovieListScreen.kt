@@ -16,6 +16,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -24,9 +25,13 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -46,6 +51,9 @@ fun MovieListScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
+    val showProgressBarState = remember { mutableStateOf(true) }
+    showProgressBarState.value = uiState?.isLoading ?: false
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -58,7 +66,9 @@ fun MovieListScreen(
         }
     ) {
         Box(modifier = Modifier.padding(it)) {
-            if (uiState == null || uiState?.list?.isEmpty() == true) {
+            if (showProgressBarState.value) {
+                ProgressBar(Modifier.padding(it))
+            } else if (uiState == null || uiState?.list?.isEmpty() == true) {
                 EmptyState()
             } else {
                 LazyColumn(
@@ -131,4 +141,25 @@ fun EmptyState() {
     ) {
         Text(text = stringResource(id = R.string.no_offer))
     }
+}
+
+@Composable
+fun ProgressBar(modifier: Modifier) {
+    Column(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        LoopProgress()
+    }
+}
+
+@Composable
+fun LoopProgress(modifier: Modifier = Modifier) {
+    CircularProgressIndicator(
+        modifier = modifier,
+        color = Color(0xff01E7D3),
+        strokeWidth = 4.dp,
+        strokeCap = StrokeCap.Round,
+    )
 }

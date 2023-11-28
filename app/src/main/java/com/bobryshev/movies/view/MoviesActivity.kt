@@ -49,7 +49,7 @@ class MoviesActivity: AppCompatActivity() {
                 route = MovieRoute.Details.route,
                 arguments = listOf(navArgument(Constants.MOVIE_ID_ARG) { type = NavType.StringType})
             ) {
-                MovieDetailScreen()
+                MovieDetailScreen(navHostController = navController)
             }
         }
     }
