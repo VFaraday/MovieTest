@@ -30,7 +30,7 @@ class MovieDetailViewModel @Inject constructor(
                         currentState.value = MovieDetailUiState(it)
                     }
                 }.onError { code, message ->
-                    
+
                 }
         }
 

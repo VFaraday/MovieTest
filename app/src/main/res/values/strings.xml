@@ -4,4 +4,6 @@
     <string name="movie_details">Movie details</string>
     <string name="is_available">Available: %s</string>
     <string name="price">Price: \$$s</string>
+    <string name="no_data">There is no data detail</string>
+    <string name="no_offer">There are no movie offers</string>
 </resources>

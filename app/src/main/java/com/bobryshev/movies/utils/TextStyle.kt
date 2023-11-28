@@ -10,3 +10,9 @@ val textStyle = TextStyle(
     fontFamily = FontFamily.SansSerif,
     color = Color.Black
 )
+
+val bigTextStyle = TextStyle(
+    fontSize = 24.sp,
+    fontFamily = FontFamily.SansSerif,
+    color = Color.Black
+)
